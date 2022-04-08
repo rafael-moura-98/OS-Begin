@@ -1,18 +1,119 @@
-# av1-ed2
+# Português
 
-Q1 – Utilize uma estrutura de árvore binária para criar um sistema para cadastro de 
-árvore genealógica. O sistema deve aceitar o cadastro dos integrantes da família, salvar 
-os dados em arquivo ou banco de dados, e permitir a visualização de forma hierárquica 
-do conjunto de dados. (2,5 ptos)
+## Sobre
 
-Q2 – Crie um programa para receber um texto com a expressão matemática, envolvendo 
-as quatro operações básicas, e represente na forma de uma árvore binária, lembrando 
-que os números devem ser as folhas. (2,5 ptos)
+Este é um script que foi criado para agilizar a instalação de programas do Rafael, vulgo eu. Ele foi inteiramente pensado para minha necessidade mas contém algumas modificações que podem faze-lo ser util para outras pessoas. 
 
-Q3 – Implemente um programa para ordenar uma lista de números inteiros, digitados 
-pelo usuário, em qualquer ordem, e imprima os números de forma ordenada, utilizando 
-o algoritmo Heap Sort. (2,5 ptos)
+Antes de executar o script, uma explicação do que ele fará. Ele irá mudar a variável do Windows "Get-ExecutionPolicy" como "AllSigned" para baixar e instalar o Chocolatey, um gerenciador e instalador de pacotes por linha de comando. O chocolatey nos permitirá baixar o Python e todos os programas que estão listados em "download.txt".
 
-Q4 – Com base em uma árvore AVL, crie um sistema que permita ler as palavras de um 
-arquivo de grande porte, no formato texto, e verificar de forma rápida a existência de 
-alguma palavra no arquivo a partir da árvore. (2,5 ptos)
+## Como usar
+
+Este programa permite três tipos de execução: criação de diretórios, download de programas e execução completa.
+
+No CMD ou Powershell como **administrador**, execute a opção abaixo que mais lhe agradar.
+
+### Criação de Diretórios
+
+O Python será baixado e toda a arvore de arquivos abaixo será criada na pasta raiz onde se encontra este projeto.
+
+Desktop\
+|--------Drives And Tools\
+|--------Edition-Creation\
+|--------Games\
+|--------|--------4Fun\
+|--------|--------Platforms\
+|--------|--------Story\
+|--------Programming\
+|--------Utils
+
+Para executar apenas a criação de diretórios, adicione o parâmetro "-d" ou "--directories", sem as aspas, após o "set_choco_python.bat".
+
+```
+.\set_choco_python.bat -d
+```
+
+### Download de Programas (Default)
+
+Além do Python será baixado também todos os programas listados no arquivo "download.txt". Cada linha deve conter apenas um nome de programa.
+
+Para obter o nome exato de cada programa de acordo com o chocolatey, acesse seu [repositório](https://community.chocolatey.org/packages) de pacotes e cheque se está disponível.
+
+**ATENÇÃO**
+>Insira o nome do pacote exatamente como está no chocolatey. Por exemplo, Steam não é apenas "steam", e sim "steam-client"; do contrário o pacote não irá baixar ou será baixado incorretamente.
+
+*Para executar apenas o download dos arquivos, nenhum parâmetro é necessário.*
+
+```
+.\set_choco_python.bat
+```
+
+### Execução Completa 
+
+Tanto a criação de diretórios quanto o download dos arquivos serão executados.
+
+Para realizar a execução completa, adicione o parâmetro "-a" ou "--all", sem as aspas, após o "set_choco_python.bat".
+
+```
+.\set_choco_python.bat -a
+```
+
+
+
+# English
+
+## About
+
+This is a script that was created to speed up the installation of Rafael's programs, aka me. It was entirely designed for my needs but contains some modifications that can make it useful for other people.
+
+Before running the script, an explanation of what it will do. It will change the Windows variable "Get-ExecutionPolicy" to "AllSigned" to download and install Chocolatey, a command-line package manager and installer. Chocolatey will allow us to download Python and all the programs that are listed in "download.txt".
+
+## How to use
+
+This program allows three types of execution: creating directories, downloading programs and running full.
+
+In CMD or Powershell as **administrator**, run the option below that suits you best.
+
+### Creating Directories
+
+Python will be downloaded and the entire file tree below will be created in the root folder where this project is located.
+
+Desktop\
+|--------Drives And Tools\
+|--------Edition-Creation\
+|--------Games\
+|--------|--------4Fun\
+|--------|--------Platforms\
+|--------|--------Story\
+|--------Programming\
+|--------Utils
+
+To perform directory creation only, add the parameter "-d" or "--directories", without quotes, after "set_choco_python.bat".
+
+```
+.\set_choco_python.bat -d
+```
+
+### Download Programs (Default)
+
+In addition to Python, all programs listed in the "download.txt" file will also be downloaded. Each line must contain only one program name.
+
+For the exact name of each program according to chocolatey, go to your [repository](https://community.chocolatey.org/packages) and check if it is available.
+
+**ATTENTION**
+>Enter the package name exactly as it is on the chocolatey. For example, Steam is not just "steam", but "steam-client"; otherwise the package will not download or will download incorrectly.
+
+*To perform only the download of files, no parameters are needed.*
+
+```
+.\set_choco_python.bat
+```
+
+### Complete Execution
+
+Both directory creation and file download will be performed.
+
+To perform the complete execution, add the parameter "-a" or "--all", without the quotes, after the "set_choco_python.bat".
+
+```
+.\set_choco_python.bat -a
+```
