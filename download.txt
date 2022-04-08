@@ -1,0 +1,12 @@
+tree
+git
+droidcamclient
+soundswitch
+vscode
+notepadplusplus
+discord
+vlc
+firefox
+telegram
+steam-client
+spotify
