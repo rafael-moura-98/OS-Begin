@@ -1,3 +1,7 @@
+# Download
+
+Download the zip file [HERE](https://github.com/rafael-moura-98/OS-Begin/archive/refs/heads/main.zip).
+
 # Português
 
 ## Sobre
