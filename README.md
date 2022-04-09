@@ -1,3 +1,5 @@
+> If you wanna contribute to this project, please go to the "[Limitations](#limitations)" tag in the end of this documentation.
+
 # Download
 
 Download the zip file [HERE](https://github.com/rafael-moura-98/OS-Begin/archive/refs/heads/main.zip).
@@ -125,3 +127,12 @@ To perform the complete execution, add the parameter "-a" or "--all", without th
 ```
 .\set_choco_python.bat -a
 ```
+
+# Limitations
+
+If you wanna contribute to this project, you can help with the following problems marked as "FIX" or plans of implementation marked as "PLUS".
+
+## Todo
+
+- FIX: When run in a computer without Python already installed, prompt can't detect python command to run the python file.
+- PLUS: Implement a easy way of create an personalized file tree requested from  the user. 

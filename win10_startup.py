@@ -105,7 +105,7 @@ def install_programs(file_name):
     # Install all files
     for program in download:
         if not "#" in program:
-            os.system(f'choco install {program}')
+            os.system(f'choco install {program} -y')
 
 
 ## Main
