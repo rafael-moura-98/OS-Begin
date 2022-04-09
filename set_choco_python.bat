@@ -14,7 +14,7 @@ echo Administrative permissions required. Detecting permissions...
 
 net session >nul 2>&1
 if %errorLevel% == 0 (
-    echo "Success: Looks like you own your pants! That"s cool bro!"
+    echo "Success: Looks like you own your pants! Welcome to the party!!!"
 ) else (
     echo "Hey you! Only adults here! Come back and you're admin."
     Exit

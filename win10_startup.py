@@ -3,12 +3,19 @@ import sys
 import time
 
 
+GREEN='\033[32m'
+ORANGE='\033[33m'
+YELLOW='\033[93m'
+RED='\033[31m'
+ENDC='\033[0m'
+
+
 def show_directories_tree():
     """ A simple function to show the user all the directories
     that will be created"""
 
-    print("""
-    An desktop tree folders will be created as follow: 
+    print(f"""
+    {ORANGE}An desktop tree folders will be created as follow:{ENDC} 
     └───Desktop
         ├───Drives And Tools
         ├───Edition-Creation
@@ -25,13 +32,13 @@ def make_directory(path):
     if not os.path.exists(path):
         os.mkdir(path)
     else:
-        print(f"Didn't created {path}. A file with this name\
-             already exists in this directory.")
+        print(f"{YELLOW}Didn't created \"{path}\". A file with this"
+             f" name already exists in this directory.{ENDC}")
 
 
 def create_directories():
     """ Create a tree of directories """
-    
+
     parent_dir = "../"
 
     new_file = os.path.join(parent_dir, "Desktop Shortcuts")
@@ -55,7 +62,7 @@ def create_directories():
         new_file = os.path.join(current_root, file)
         make_directory(new_file)
 
-    print("Folders creation ran as expected")
+    print(f"{GREEN}Folders creation ran as expected{ENDC}")
 
 
 def install_programs(file_name):
@@ -65,31 +72,40 @@ def install_programs(file_name):
             download = f.read().splitlines()
     
     else:
-        print("A file named {file_name} couldn't be found. Exiting...")
+        print(f"{RED}Can't download programs. A file named {file_name}"
+             f" couldn't be found. Exiting...{ENDC}")
         exit()
 
-    print("""
-    #################################################
-    The following programs are about to be installed:
+    print(f"""
+    {ORANGE}#################################################
+    The following programs are about to be installed:{ENDC}
     """)
 
     for program in download:
-        print(f"#{program}")
+        if not "#" in program:
+            print(f"{ORANGE}#{ENDC}{program}")
     
-    print("""
-    #################################################
+    print(f"""
+    {ORANGE}#################################################{ENDC}
     
-    The installation process will start in 10 seconds.
+    {YELLOW}The installation process will start in 10 seconds.
 
-    Press CTRL + C if you want to cancel.
+    Press CTRL + C if you want to cancel.{ENDC}
     """
     )
+
+    if not download:
+        print("Just kidding! You selected nothing... Exiting")
+        time.sleep(3)
+        print(f"{RED}Empty file. download.txt doesn't contain any program name.{ENDC}")
+        exit()
 
     time.sleep(10)
 
     # Install all files
     for program in download:
-        os.system(f'choco install {program}')
+        if not "#" in program:
+            os.system(f'choco install {program}')
 
 
 ## Main
@@ -97,13 +113,13 @@ def install_programs(file_name):
 if len(sys.argv) == 2:        # If one parameter is passed
     if (sys.argv[1] == "-a" or sys.argv[1] == "--all"):
         print(
-        """You've selected a COMPLETE instalation process.
-        This mean all the programs written on download.txt will be installed.
-        Also, the directories will be created.
-        Any doubts, read the readme.md file that should be located along\
-             with this script."""
+        f"{ORANGE}You've selected a COMPLETE instalation process.{ENDC}\n"
+        "This mean all the programs written on download.txt will be installed.\n"
+        "Also, the directories will be created.\n"
+        "Any doubts, read the readme.md file that should be located along"
+            " with this script.\n"
         )
-        time.sleep(5)
+        time.sleep(10)
 
         show_directories_tree()
         create_directories()
@@ -111,28 +127,29 @@ if len(sys.argv) == 2:        # If one parameter is passed
 
     elif (sys.argv[1] == "-d" or sys.argv[1] == "--directories"):
         print(
-        """You've selected ONLY DIRECTORIES creation.
-        This mean that all the directories will be created.
-        Any doubts, read the readme.md file that should be located along with\
-             this script."""
+        f"{ORANGE}You've selected ONLY DIRECTORIES creation.{ENDC}\n"
+        "This mean that all the directories will be created.\n"
+        "Any doubts, read the readme.md file that should be located"
+            " along with this script.\n"
         )
-        time.sleep(5)
+        time.sleep(10)
 
         show_directories_tree()
         create_directories()
     
     else:
-        print("Unexpected set of pararameter on call. Exiting...")
+        print(f"{RED}Unexpected set of pararameter on call. Exiting...{ENDC}")
         exit()
+
 
 elif len(sys.argv) == 1:        # If none parameter is passed
     print(
-    """You've selected a DEFAULT installation. 
-    All the programs set on download will be installed
-    Any doubts, read the readme.md file that should be located along with \
-        this script."""
+    f"{ORANGE}You've selected a DEFAULT installation.{ENDC}\n"
+    "All the programs set on download will be installed.\n"
+    "Any doubts, read the readme.md file that should be located along with"
+        " this script.\n"
     )
-    time.sleep(5)
+    time.sleep(10)
 
     install_programs("download.txt")
     

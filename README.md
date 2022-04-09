@@ -38,6 +38,8 @@ Além do Python será baixado também todos os programas listados no arquivo "do
 
 Para obter o nome exato de cada programa de acordo com o chocolatey, acesse seu [repositório](https://community.chocolatey.org/packages) de pacotes e cheque se está disponível.
 
+Caso queira que um programa listado não seja baixado, acrescente "#" em qualquer posição da linha.
+
 **ATENÇÃO**
 >Insira o nome do pacote exatamente como está no chocolatey. Por exemplo, Steam não é apenas "steam", e sim "steam-client"; do contrário o pacote não irá baixar ou será baixado incorretamente.
 
@@ -98,6 +100,8 @@ To perform directory creation only, add the parameter "-d" or "--directories", w
 In addition to Python, all programs listed in the "download.txt" file will also be downloaded. Each line must contain only one program name.
 
 For the exact name of each program according to chocolatey, go to your [repository](https://community.chocolatey.org/packages) and check if it is available.
+
+If you want a listed program not to be downloaded, add "#" anywhere on the line.
 
 **ATTENTION**
 >Enter the package name exactly as it is on the chocolatey. For example, Steam is not just "steam", but "steam-client"; otherwise the package will not download or will download incorrectly.
