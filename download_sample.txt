@@ -1,0 +1,6 @@
+discord
+vlc
+firefox
+telegram
+steam-client
+spotify
