@@ -77,15 +77,15 @@ def create_directories():
 def install_programs(file_name):
     """Install all programs listed on file_name"""
     if os.path.exists(file_name):
-        with open(file_name, "r") as f:
-            download = f.read().splitlines()
+        with open(file_name, "r") as file:
+            download = file.read().splitlines()
 
     else:
         print(
             f"{RED}Can't download programs. A file named {file_name}"
             f" couldn't be found. Exiting...{ENDC}"
         )
-        exit()
+        sys.exit()
 
     print(
         f"""
@@ -112,7 +112,7 @@ def install_programs(file_name):
         print("Just kidding! You selected nothing... Exiting")
         time.sleep(3)
         print(f"{RED}Empty file. download.txt doesn't contain any program name.{ENDC}")
-        exit()
+        sys.exit()
 
     time.sleep(10)
 
@@ -153,7 +153,7 @@ if len(sys.argv) == 2:  # If one parameter is passed
 
     else:
         print(f"{RED}Unexpected set of pararameter on call. Exiting...{ENDC}")
-        exit()
+        sys.exit()
 
 
 elif len(sys.argv) == 1:  # If none parameter is passed
