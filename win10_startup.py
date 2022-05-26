@@ -16,7 +16,7 @@ def show_directories_tree():
 
     print(
         f"""
-    {ORANGE}An desktop tree folders will be created as follow:{ENDC} 
+    {ORANGE}An desktop tree folders will be created as follow:{ENDC}
     └───Desktop
         ├───Drives And Tools
         ├───Edition-Creation
@@ -31,6 +31,7 @@ def show_directories_tree():
 
 
 def make_directory(path):
+    """Creates a directory"""
     if not os.path.exists(path):
         os.mkdir(path)
     else:
@@ -77,7 +78,7 @@ def create_directories():
 def install_programs(file_name):
     """Install all programs listed on file_name"""
     if os.path.exists(file_name):
-        with open(file_name, "r") as file:
+        with open(file_name, "r", encoding="UTF-8") as file:
             download = file.read().splitlines()
 
     else:
@@ -101,7 +102,7 @@ def install_programs(file_name):
     print(
         f"""
     {ORANGE}#################################################{ENDC}
-    
+
     {YELLOW}The installation process will start in 10 seconds.
 
     Press CTRL + C if you want to cancel.{ENDC}
