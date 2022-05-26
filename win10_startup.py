@@ -1,3 +1,6 @@
+""" Main file to create the tree of file and also
+install programs through chocolatey"""
+
 import os
 import sys
 import time
@@ -96,7 +99,7 @@ def install_programs(file_name):
     )
 
     for program in download:
-        if not "#" in program:
+        if "#" not in program:
             print(f"{ORANGE}#{ENDC}{program}")
 
     print(
@@ -119,11 +122,11 @@ def install_programs(file_name):
 
     # Install all files
     for program in download:
-        if not "#" in program:
+        if "#" not in program:
             os.system(f"choco install {program} -y")
 
 
-## Main
+# Main
 
 if len(sys.argv) == 2:  # If one parameter is passed
     if sys.argv[1] == "-a" or sys.argv[1] == "--all":
