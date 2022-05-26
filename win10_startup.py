@@ -1,3 +1,6 @@
+""" Main file to create the tree of file and also
+install programs through chocolatey"""
+
 import os
 import sys
 import time
@@ -16,7 +19,7 @@ def show_directories_tree():
 
     print(
         f"""
-    {ORANGE}An desktop tree folders will be created as follow:{ENDC} 
+    {ORANGE}An desktop tree folders will be created as follow:{ENDC}
     └───Desktop
         ├───Drives And Tools
         ├───Edition-Creation
@@ -31,6 +34,7 @@ def show_directories_tree():
 
 
 def make_directory(path):
+    """Creates a directory"""
     if not os.path.exists(path):
         os.mkdir(path)
     else:
@@ -77,15 +81,15 @@ def create_directories():
 def install_programs(file_name):
     """Install all programs listed on file_name"""
     if os.path.exists(file_name):
-        with open(file_name, "r") as f:
-            download = f.read().splitlines()
+        with open(file_name, "r", encoding="UTF-8") as file:
+            download = file.read().splitlines()
 
     else:
         print(
             f"{RED}Can't download programs. A file named {file_name}"
             f" couldn't be found. Exiting...{ENDC}"
         )
-        exit()
+        sys.exit()
 
     print(
         f"""
@@ -95,13 +99,13 @@ def install_programs(file_name):
     )
 
     for program in download:
-        if not "#" in program:
+        if "#" not in program:
             print(f"{ORANGE}#{ENDC}{program}")
 
     print(
         f"""
     {ORANGE}#################################################{ENDC}
-    
+
     {YELLOW}The installation process will start in 10 seconds.
 
     Press CTRL + C if you want to cancel.{ENDC}
@@ -112,17 +116,17 @@ def install_programs(file_name):
         print("Just kidding! You selected nothing... Exiting")
         time.sleep(3)
         print(f"{RED}Empty file. download.txt doesn't contain any program name.{ENDC}")
-        exit()
+        sys.exit()
 
     time.sleep(10)
 
     # Install all files
     for program in download:
-        if not "#" in program:
+        if "#" not in program:
             os.system(f"choco install {program} -y")
 
 
-## Main
+# Main
 
 if len(sys.argv) == 2:  # If one parameter is passed
     if sys.argv[1] == "-a" or sys.argv[1] == "--all":
@@ -153,7 +157,7 @@ if len(sys.argv) == 2:  # If one parameter is passed
 
     else:
         print(f"{RED}Unexpected set of pararameter on call. Exiting...{ENDC}")
-        exit()
+        sys.exit()
 
 
 elif len(sys.argv) == 1:  # If none parameter is passed
